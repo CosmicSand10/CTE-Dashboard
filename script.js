@@ -13,7 +13,7 @@ const SETTINGS = {
         {points:300,name:"FREE FRIDAY"}
     ],
     stages: [
-        {points:0,name:"📐 Planning"},
+        {points:0,name:"Planning"},
         {points:25,name:"🚧 Site Prep"},
         {points:75,name:"🏗 Foundation"},
         {points:100,name:"🧱 Framing"},
