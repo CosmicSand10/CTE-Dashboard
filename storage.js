@@ -253,6 +253,17 @@ function getLeaderboard(){
 ==================================================*/
 
 function totalPoints(){
+    function getClassById(id){
+
+    return [
+
+        ...CONFIG.gold,
+
+        ...CONFIG.red
+
+    ].find(c=>c.id===id);
+
+}
 
     return Object.values(
 
