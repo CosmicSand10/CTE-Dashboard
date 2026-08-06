@@ -787,12 +787,6 @@ aside{
     TEACHER MODAL
 ==================================================*/
 
-.hidden{
-
-    display:none;
-
-}
-
 #teacherModal{
 
     position:fixed;
@@ -810,6 +804,12 @@ aside{
     z-index:999;
 
     backdrop-filter:blur(8px);
+
+}
+
+#teacherModal.hidden{
+
+    display:none;
 
 }
 
