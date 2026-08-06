@@ -4,13 +4,13 @@
 
 const SETTINGS = {
     maxPoints: 300,
-    periods: ["Period 1","Period 2","Period 3","Period 4","Period 5","Period 6"],
+    periods: ["GOLD 1 ENG 2","GOLD 2 ENG 3-4","GOLD 4 ARCH 1","RED 1 ENG 1","RED 2 ENG 1","RED 3 ARCH 2-4"],
     colors: ["#00C2FF","#00E676","#FF9800","#E91E63","#9C27B0","#FFD600"],
     rewards: [
-        {points:75,name:"🎧 Headphones"},
-        {points:150,name:"🎵 Class Music"},
-        {points:225,name:"🎁 Mystery Reward"},
-        {points:300,name:"🎉 FREE FRIDAY"}
+        {points:75,name:"Headphones While Working"},
+        {points:150,name:"Class DJ "},
+        {points:225,name:"Mystery Reward"},
+        {points:300,name:"FREE FRIDAY"}
     ],
     stages: [
         {points:0,name:"📐 Planning"},
