@@ -1,0 +1,14 @@
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Orbitron,sans-serif;background:#081B33;color:#fff}
+#background-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:2px solid #18c8ff}
+main{display:grid;grid-template-columns:3fr 1fr;gap:20px;padding:20px}
+#classes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.class-card,.panel{background:#112a47;border:2px solid #18c8ff;border-radius:14px;padding:18px}
+.progress-bar{height:18px;background:#233b5d;border-radius:20px;overflow:hidden;margin:15px 0}
+.progress-fill{height:100%;width:0%;transition:.4s}
+.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
+.controls button{padding:10px;border:none;border-radius:8px;background:#18c8ff;color:#fff;cursor:pointer}
+.undo{grid-column:span 4;background:#ff8a00}
+#leaderboard{padding-left:20px}
+#logo{width:60px;height:60px;background:#1b3c5c;border-radius:50%}
+.subtitle{color:#9fdfff}

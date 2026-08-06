@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTE Classroom Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="background-grid"></div>
+<header>
+<div class="title-section">
+<img src="assets/logo.png" id="logo" alt="Logo">
+<div>
+<h1>CTE CLASSROOM DASHBOARD</h1>
+<p class="subtitle">Engineering • Architecture • Classroom Competition</p>
+</div>
+</div>
+<div id="clock">--:--</div>
+</header>
+<main>
+<section id="classes"></section>
+<aside id="sidebar">
+<section class="panel"><h2>🏆 Leaderboard</h2><ol id="leaderboard"></ol></section>
+<section class="panel"><h2>🎁 Reward Milestones</h2>
+<ul id="rewards">
+<li><span>75 pts</span> 🎧 Headphones</li>
+<li><span>150 pts</span> 🎵 Class Music</li>
+<li><span>225 pts</span> 🎁 Mystery Reward</li>
+<li><span>300 pts</span> 🎉 FREE FRIDAY</li>
+</ul></section>
+<section class="panel"><h2>📊 Competition</h2>
+<p><strong>Leader:</strong> <span id="leader-name"></span></p>
+<p><strong>Total:</strong> <span id="total-points">0</span></p>
+</section>
+</aside>
+</main>
+
+<template id="class-card-template">
+<div class="class-card">
+<h2 class="period-name"></h2>
+<div class="score"></div>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+<div><strong>🏗 Project Status</strong><p class="project-stage"></p></div>
+<div><strong>🎯 Next Reward</strong><p class="reward-name"></p><small class="points-left"></small></div>
+<div class="controls">
+<button data-change="1">+1</button>
+<button data-change="5">+5</button>
+<button data-change="10">+10</button>
+<button data-change="25">+25</button>
+<button data-change="-1">-1</button>
+<button data-change="-5">-5</button>
+<button class="undo">Undo</button>
+</div>
+</div>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
