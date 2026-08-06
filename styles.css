@@ -1,14 +1,1106 @@
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Orbitron,sans-serif;background:#081B33;color:#fff}
-#background-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:2px solid #18c8ff}
-main{display:grid;grid-template-columns:3fr 1fr;gap:20px;padding:20px}
-#classes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.class-card,.panel{background:#112a47;border:2px solid #18c8ff;border-radius:14px;padding:18px}
-.progress-bar{height:18px;background:#233b5d;border-radius:20px;overflow:hidden;margin:15px 0}
-.progress-fill{height:100%;width:0%;transition:.4s}
-.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
-.controls button{padding:10px;border:none;border-radius:8px;background:#18c8ff;color:#fff;cursor:pointer}
-.undo{grid-column:span 4;background:#ff8a00}
-#leaderboard{padding-left:20px}
-#logo{width:60px;height:60px;background:#1b3c5c;border-radius:50%}
-.subtitle{color:#9fdfff}
+/*==================================================
+    CTE CLASS CHAMPIONSHIP
+    Version 2 Stylesheet
+==================================================*/
+
+
+/*==================================================
+    VARIABLES
+==================================================*/
+
+:root{
+
+    --bg:#07182c;
+    --panel:#102743;
+    --panel-light:#17395f;
+
+    --cyan:#00d8ff;
+    --cyan-dark:#009dbe;
+
+    --gold:#ffd54f;
+    --red:#ef5350;
+
+    --white:#f5f8fc;
+    --gray:#9bb4c9;
+
+    --success:#4caf50;
+
+    --radius:18px;
+
+    --shadow:
+        0 0 25px rgba(0,216,255,.15);
+
+}
+
+
+/*==================================================
+    RESET
+==================================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Orbitron",sans-serif;
+
+    color:var(--white);
+
+    background:var(--bg);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+
+/*==================================================
+    BLUEPRINT BACKGROUND
+==================================================*/
+
+#blueprint{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        );
+
+    background-size:40px 40px;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            rgba(0,216,255,.12),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            circle at bottom left,
+            rgba(255,213,79,.08),
+            transparent 35%
+        );
+
+}
+
+
+/*==================================================
+    HEADER
+==================================================*/
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:24px 50px;
+
+    border-bottom:2px solid rgba(0,216,255,.25);
+
+    background:rgba(7,24,44,.55);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.header-left h1{
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+}
+
+.header-left p{
+
+    color:var(--gray);
+
+    margin-top:6px;
+
+}
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+#clock{
+
+    font-size:1.4rem;
+
+    color:var(--cyan);
+
+    font-weight:700;
+
+}
+
+#teacherMenu{
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:var(--panel);
+
+    color:white;
+
+    font-size:1.5rem;
+
+    transition:.25s;
+
+}
+
+#teacherMenu:hover{
+
+    background:var(--cyan);
+
+    color:black;
+
+    transform:rotate(20deg);
+
+}
+
+
+/*==================================================
+    TOP CONTROLS
+==================================================*/
+
+.top-controls{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 50px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.toggle-group{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.toggle{
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    background:var(--panel);
+
+    color:white;
+
+    font-size:.95rem;
+
+    transition:.25s;
+
+    border:2px solid transparent;
+
+}
+
+.toggle:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.toggle.active{
+
+    border-color:var(--cyan);
+
+    background:var(--panel-light);
+
+}
+
+
+/*==================================================
+    CLASS TABS
+==================================================*/
+
+#classTabs{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    padding:0 50px 35px;
+
+}
+
+.class-tab{
+
+    min-width:170px;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    background:var(--panel);
+
+    border:2px solid transparent;
+
+    transition:.25s;
+
+    font-weight:700;
+
+}
+
+.class-tab:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.class-tab.active{
+
+    border-color:var(--cyan);
+
+    background:var(--panel-light);
+
+}
+
+
+/*==================================================
+    MAIN LAYOUT
+==================================================*/
+
+main{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    padding:0 50px 50px;
+
+    align-items:start;
+
+}
+
+#mainCard{
+
+    background:var(--panel);
+
+    border-radius:var(--radius);
+
+    border:2px solid rgba(0,216,255,.25);
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    min-height:650px;
+
+}
+
+aside{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.sidePanel{
+
+    background:var(--panel);
+
+    border-radius:var(--radius);
+
+    border:2px solid rgba(0,216,255,.25);
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.sidePanel h3{
+
+    margin-bottom:18px;
+
+    color:var(--cyan);
+
+    letter-spacing:1px;
+
+}
+/*==================================================
+    MAIN SCORE
+==================================================*/
+
+#classTitle{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+
+    color:var(--cyan);
+
+}
+
+#score{
+
+    text-align:center;
+
+    font-size:8rem;
+
+    font-weight:900;
+
+    line-height:1;
+
+    letter-spacing:6px;
+
+    color:white;
+
+    text-shadow:
+        0 0 20px rgba(0,216,255,.35);
+
+    margin-top:20px;
+
+    transition:.35s;
+
+}
+
+.pointsLabel{
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+    letter-spacing:8px;
+
+    color:var(--gray);
+
+    margin-bottom:40px;
+
+}
+
+
+/*==================================================
+    PROGRESS BAR
+==================================================*/
+
+.progress{
+
+    width:100%;
+
+    height:34px;
+
+    background:#061321;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    border:2px solid rgba(255,255,255,.08);
+
+    margin-bottom:35px;
+
+}
+
+#progressFill{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00cfff,
+            #59efff
+        );
+
+    transition:width .5s ease;
+
+    box-shadow:
+        0 0 20px rgba(0,216,255,.6);
+
+}
+
+
+/*==================================================
+    STATUS
+==================================================*/
+
+#constructionStage{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    color:var(--gold);
+
+}
+
+#nextReward{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+}
+
+#rewardRemaining{
+
+    text-align:center;
+
+    color:var(--gray);
+
+    margin-top:8px;
+
+    margin-bottom:40px;
+
+}
+
+
+/*==================================================
+    BUTTON GRID
+==================================================*/
+
+.buttonGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:16px;
+
+}
+
+.pointButton{
+
+    height:65px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:var(--panel-light);
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    transition:.2s;
+
+    border:2px solid transparent;
+
+}
+
+.pointButton:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--cyan);
+
+    box-shadow:var(--shadow);
+
+}
+
+.pointButton:active{
+
+    transform:scale(.97);
+
+}
+
+.negative{
+
+    background:#4c1f26;
+
+}
+
+.negative:hover{
+
+    border-color:var(--red);
+
+}
+
+#undoButton{
+
+    grid-column:span 4;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        90deg,
+        #ff9800,
+        #ffb84d
+    );
+
+    color:black;
+
+    font-family:inherit;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+#undoButton:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==================================================
+    SIDEBAR
+==================================================*/
+
+#leaderboard{
+
+    margin-top:15px;
+
+    padding-left:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+#leaderboard li{
+
+    font-size:1.05rem;
+
+}
+
+#rewardList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    margin-top:15px;
+
+}
+
+#rewardList div{
+
+    padding:10px 12px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.05);
+
+}
+
+#totalPoints,
+#currentLeader{
+
+    color:var(--cyan);
+
+    margin-top:12px;
+
+    margin-bottom:20px;
+
+}
+
+.sidePanel hr{
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    margin:20px 0;
+
+}
+
+
+/*==================================================
+    SIMPLE ANIMATIONS
+==================================================*/
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:
+            0 0 12px rgba(0,216,255,.15);
+
+    }
+
+    50%{
+
+        box-shadow:
+            0 0 28px rgba(0,216,255,.45);
+
+    }
+
+    100%{
+
+        box-shadow:
+            0 0 12px rgba(0,216,255,.15);
+
+    }
+
+}
+
+#mainCard{
+
+    animation:glow 5s infinite;
+
+}
+
+@keyframes pulseScore{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.scoreChanged{
+
+    animation:pulseScore .35s;
+
+}
+/*==================================================
+    TEACHER MODAL
+==================================================*/
+
+.hidden{
+
+    display:none;
+
+}
+
+#teacherModal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+    backdrop-filter:blur(8px);
+
+}
+
+.modal{
+
+    width:500px;
+
+    background:var(--panel);
+
+    border:2px solid var(--cyan);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:
+        0 0 35px rgba(0,216,255,.35);
+
+}
+
+.modal h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:var(--cyan);
+
+}
+
+.modal button{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:var(--panel-light);
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:1rem;
+
+    transition:.25s;
+
+}
+
+.modal button:hover{
+
+    background:var(--cyan);
+
+    color:black;
+
+}
+
+
+/*==================================================
+    ACTIVE STATES
+==================================================*/
+
+.toggle.active{
+
+    background:linear-gradient(
+        90deg,
+        var(--cyan-dark),
+        var(--cyan)
+    );
+
+    color:black;
+
+    box-shadow:
+        0 0 25px rgba(0,216,255,.4);
+
+}
+
+.class-tab.active{
+
+    background:linear-gradient(
+        90deg,
+        var(--cyan-dark),
+        var(--cyan)
+    );
+
+    color:black;
+
+    box-shadow:
+        0 0 25px rgba(0,216,255,.4);
+
+}
+
+
+/*==================================================
+    PANEL HOVER
+==================================================*/
+
+.sidePanel,
+#mainCard{
+
+    transition:.35s;
+
+}
+
+.sidePanel:hover,
+#mainCard:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==================================================
+    SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#081421;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--cyan);
+
+    border-radius:20px;
+
+}
+
+
+/*==================================================
+    RESPONSIVE
+==================================================*/
+
+@media(max-width:1200px){
+
+    main{
+
+        grid-template-columns:1fr;
+
+    }
+
+    aside{
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:20px;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+
+    }
+
+    .top-controls{
+
+        justify-content:center;
+
+    }
+
+    #score{
+
+        font-size:5rem;
+
+    }
+
+    .buttonGrid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    #undoButton{
+
+        grid-column:span 2;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    aside{
+
+        grid-template-columns:1fr;
+
+    }
+
+    #classTabs{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+}
+
+
+/*==================================================
+    FUTURE EFFECTS
+==================================================*/
+
+.glow{
+
+    box-shadow:
+        0 0 35px rgba(0,216,255,.45);
+
+}
+
+.flash{
+
+    animation:flash .4s;
+
+}
+
+@keyframes flash{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.04);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.fadeIn{
+
+    animation:fadeIn .35s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*==================================================
+    VERSION 2 COMPLETE
+==================================================*/
